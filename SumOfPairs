@@ -1,0 +1,24 @@
+public class SumOfPairs
+{
+
+int arr[]= {1,2,3,4,6,7};// 6 elements
+int sum=6, value=0;
+ void pairs()
+   {
+    for(int i=0;i<arr.length;i=i+1)
+    {
+        for(int j=i+1;j<arr.length;j=j+1)
+            {
+             value= arr[i]+arr[j];
+             if(value==sum)
+                {System.out.println("The elements which are equal to sum when they are added : "+arr[i]+" "+arr[j]);
+                }
+            }
+    }
+   }
+public static void main(String args[])
+{
+ SumOfPairs obj = new SumOfPairs();
+ obj.pairs();
+}
+}

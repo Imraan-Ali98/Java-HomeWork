@@ -1,7 +1,9 @@
 public class Rough
 {
     void rough()
-    {
+    { //100
+      //020
+      //003 - diagonal matrix
         for(int i=0;i<3;i++)
         {
             for(int j=0;j<3;j++)
@@ -14,7 +16,38 @@ public class Rough
             }
 		System.out.println();
         }
-   }
+	
+	//200
+	//020
+	//002 - scalar matrix
+	  for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                if(i==j)
+                {
+                    System.out.print("2");
+                }
+                System.out.print("0");
+            }
+		System.out.println();
+        }
+	//100
+	//010
+	//001 - Unit matrix
+	for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                if(i==j)
+                {
+                    System.out.print("1");
+                }
+                System.out.print("0");
+            }
+		System.out.println();
+        }
+    }
 public static void main(String args[])
 {
 Rough obj= new Rough();

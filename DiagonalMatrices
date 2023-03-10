@@ -12,6 +12,7 @@ public class Rough
                 {
                     System.out.print(j+1);
                 }
+		else
                 System.out.print("0");
             }
 		System.out.println();
@@ -28,6 +29,7 @@ public class Rough
                 {
                     System.out.print("2");
                 }
+		else
                 System.out.print("0");
             }
 		System.out.println();
@@ -43,6 +45,7 @@ public class Rough
                 {
                     System.out.print("1");
                 }
+		else
                 System.out.print("0");
             }
 		System.out.println();

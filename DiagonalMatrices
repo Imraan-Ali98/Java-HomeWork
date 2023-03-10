@@ -17,6 +17,7 @@ public class Rough
             }
 		System.out.println();
         }
+System.out.println();
 	
 	//200
 	//020
@@ -34,6 +35,8 @@ public class Rough
             }
 		System.out.println();
         }
+System.out.println();
+
 	//100
 	//010
 	//001 - Unit matrix

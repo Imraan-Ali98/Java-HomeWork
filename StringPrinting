@@ -1,0 +1,19 @@
+package Tasks;
+
+public class Rough 
+{
+	void print()
+	{ // Printing every 3rd char of the given String
+		String s = "Laziness pays of overnight however hard work pays off throughout your life";
+		for(int i=2;i<s.length();i=i+3)
+		{
+			System.out.print(s.charAt(i));
+		}
+	}
+	public static void main(String[] args) 
+	{
+		Rough obj= new Rough();
+		obj.print();
+	}
+
+}

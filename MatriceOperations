@@ -1,0 +1,64 @@
+public class MatrixOperation 
+{
+	void addition()
+	{
+		int a[][]= {{1,2,4},
+			    	{2,3,6},
+			    	{2,3,5}};
+		
+		int b[][]= {{1,2},
+					{2,3},
+					{2,3}};
+		int c[][]= new int[3][2];
+		
+		//Addition
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<a[i].length;j++)
+			{
+				c[i][j]=a[i][j]+b[i][j];
+				System.out.print(c[i][j]+" ");
+			}System.out.println();
+		}
+		
+		//Subtraction
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<a[i].length;j++)
+			{
+				c[i][j]= a[i][j]-b[i][j];
+				System.out.print(c[i][j]+" ");
+			}System.out.println();
+		}
+		
+		//Multiplication
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<b[i].length;j++)
+			{
+				for(int k=0;k<a[i].length;k++)
+				{
+					c[i][j]= c[i][j]+(a[i][k]*b[k][j]);
+				}//System.out.println();
+			}
+		}
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<b[i].length;j++)
+			{
+				System.out.print(c[i][j]+" ");
+			}System.out.println();
+		}
+//		for(int k[]: c)
+//		{
+//			for(int j: k)
+//			System.out.print(j+" ");
+//		}
+	} 
+	public static void main(String[] args) 
+	{
+		MatrixOperation obj= new MatrixOperation();
+		obj.addition();
+	}
+
+}

@@ -1,0 +1,42 @@
+package Task.string;
+
+import java.util.Scanner;
+
+public class RemovingChar 
+{
+	void remover()
+	{	//remove a particular char from a string
+		System.out.println("Enter a word");
+		Scanner sc= new Scanner(System.in);
+		String word = sc.nextLine();
+		char arr[]= word.toCharArray();
+		
+		// Hello is a word in the list of english words.
+		System.out.println("Enter a char");
+		Scanner sd= new Scanner(System.in);
+		char letter= sd.next().charAt(0);
+		
+		for(int i=0;i<arr.length;i++)
+		{
+		 if(letter==arr[i])
+		 {	//System.out.println(i);
+			 for(int j=i;j<arr.length-1;j++)
+			 {
+				 arr[j]=arr[j+1];
+			 }
+			 arr[arr.length-1]=' ';
+			 break;
+		 }
+		}
+		for(char k: arr)
+		{
+			System.out.print(k);
+		}
+	}
+	public static void main(String[] args) 
+	{
+		RemovingChar obj= new RemovingChar();
+		obj.remover();
+	}
+
+}

@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class ComparingStrings 
+{
+	void compare()
+	{	
+		String str1= "Imraan";
+		String str2= "Ali";
+		
+		//comparing string length, not available logic
+		if(str1.length()== str2.length()) 
+		{
+		 System.out.println("both strings are same in length!");	
+		}
+		else
+		{
+		 System.out.println("both strings are != in length");
+		}
+		
+		//comparing value of string using method
+		boolean same= str1.equals(str2);
+		System.out.println("String equals is "+same);
+		
+		//checking equality of string along with case using logic
+		System.out.println("Enter str1");
+		Scanner sc1= new Scanner(System.in);
+		String name1= sc1.nextLine();
+		
+		System.out.println("Enter str2");
+		Scanner sc2= new Scanner(System.in);
+		String name2= sc2.nextLine();
+		
+		char ar1[]= new char[name1.length()];
+		char ar2[]= new char[name2.length()];
+		
+		int flag=1;
+		if(name1.length()==name2.length())
+		{
+			for(int i=0;i<name1.length();i++)
+			{
+			 ar1[i]= name1.charAt(i);
+			}
+				
+			for(int j=0;j<name2.length();j++)
+			{
+		     ar2[j]= name2.charAt(j);
+			}
+		for(int i=0;i<ar1.length;i++)
+		{
+			if((int)(ar1[i])!=(int)(ar2[i]))
+			{
+				flag= 0;
+				break;
+			}
+		}
+		}
+		else
+		{
+			flag=0;
+		}
+		if(flag==1)
+		{
+			System.out.println("both strings are ==");
+		}
+		else 
+		{
+			System.out.println("both strings are !=");
+		}
+	}
+	public static void main(String[] args) 
+	{
+		ComparingStrings obj= new ComparingStrings();
+		obj.compare();
+	}
+}

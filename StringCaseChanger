@@ -1,0 +1,49 @@
+package Task.string;
+
+import java.util.Scanner;
+
+public class StringCaseChange 
+{
+	void caseChanger()
+	{   //convert a string totally to upper case using toUpperCase() 
+		System.out.println("Enter a lowercase word");
+		Scanner sc= new Scanner(System.in);
+		String word1= sc.nextLine();
+		
+		System.out.println(word1.toUpperCase());
+		
+		//convert a string totally to upper case using logic
+		char arr1[]= word1.toCharArray();
+		for(int i=0;i<arr1.length;i++)
+		{
+			arr1[i]=(char)((int)(arr1[i])-32);
+		}
+		for(char k: arr1)
+		{
+			System.out.print(k);
+		}System.out.println();
+		
+		//convert a string totally to lower case using toLowerCase()
+		System.out.println("Enter an uppercase word");
+		Scanner sd= new Scanner(System.in);
+		String word2= sd.nextLine();
+		
+		System.out.println(word2.toLowerCase());
+		
+		//convert a string totally to lowerCase using logic
+				char arr2[]= word2.toCharArray();
+				for(int i=0;i<arr2.length;i++)
+				{
+					arr2[i]=(char)((int)(arr2[i])+32);
+				}
+				for(char k: arr2)
+				{
+					System.out.print(k);
+				}
+	}
+	public static void main(String[] args) 
+	{
+		StringCaseChange obj= new StringCaseChange();
+		obj.caseChanger();
+	}
+}

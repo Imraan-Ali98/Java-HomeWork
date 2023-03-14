@@ -1,0 +1,41 @@
+package Task.string;
+
+public class FindingVowels 
+{	// vowels individual count in the string
+	void counter()
+	{
+		String word= "Hello is a word in the list english words.";
+		char arr[]= word.toCharArray();
+		int a=0, e=0, i=0, o=0, u=0;
+		
+		for(int j=0;j<arr.length;j++)
+		{
+			if(arr[j]=='a'||arr[j]=='A')
+			{
+				a++;
+			}
+			if(arr[j]=='e'||arr[j]=='E')
+			{
+				e++;	
+			}
+			if(arr[j]=='i'||arr[j]=='I')
+			{
+				i++;	
+			}
+			if(arr[j]=='o'||arr[j]=='O')
+			{
+				o++;	
+			}
+			if(arr[j]=='u'||arr[j]=='U')
+			{
+				u++;
+			}
+		}
+		System.out.println("a is "+a+"\n"+"e is "+e+"\n"+"i is "+i+"\n"+"o is "+o+"\n"+"u is "+u);
+	}
+	public static void main(String[] args) 
+	{
+		FindingVowels obj= new FindingVowels();
+		obj.counter();
+	}
+}

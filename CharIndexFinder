@@ -1,0 +1,44 @@
+package Task.string;
+
+import java.util.Scanner;
+
+public class IndexOfChar 
+{
+	void find()
+	{	//finding 1st index of a char from reverse using method  
+		String sentence= "hello he is a man of man";
+		System.out.println(sentence.lastIndexOf("man")); // this method gives the index where the char begins
+		
+		//finding 1st index of a char from reverse using logic
+		System.out.println("Enter a word");
+		Scanner sc= new Scanner(System.in);
+		String word= sc.nextLine();
+		char compare[]= word.toCharArray();
+		
+		System.out.println("Enter a searching letter");
+		Scanner sd= new Scanner(System.in);
+		char letter= sd.next().charAt(0);
+		
+		char arr[]= new char[word.length()];
+		int flag=0;
+		
+		for(int i=(compare.length-1);i>=0;i--)
+		{
+			if(letter==compare[i])
+			{
+			System.out.println("Index of "+letter+" : "+i );
+			flag= 1;
+			break;
+			}
+		}
+		if(flag==0)
+		{
+			System.out.println("Your char is not available");
+		}
+	}
+	public static void main(String[] args) 
+	{
+		IndexOfChar obj= new IndexOfChar();
+		obj.find();
+	}
+}

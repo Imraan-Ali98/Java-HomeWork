@@ -1,0 +1,55 @@
+package Task.string;
+
+import java.util.Scanner;
+
+public class StringConcat 
+{
+	void concat()
+	{	
+		System.out.println("Enter a word");
+		Scanner sc= new Scanner(System.in);
+		String word1= sc.nextLine();
+		// String concatination using concat()
+		System.out.println("Enter another word");
+		Scanner sd= new Scanner(System.in);
+		String word2= sd.nextLine();
+		
+		System.out.println(word1.concat(word2)+" Using method");
+		
+		// String concatination using concatination operator
+		System.out.println(word1+word2+" Using concationation operator");
+		
+		// String concatination using 2 logics
+		char arr1[]= word1.toCharArray();
+		char arr2[]= word2.toCharArray();
+		char arr3[]= new char[arr1.length+arr2.length];
+		// logic 1
+			for(int i=0;i<arr3.length;i++)
+			{	
+				if(i<arr1.length)
+					{
+					arr3[i]= arr1[i];
+					}
+				else if(i>=arr1.length-1)
+					{
+					arr3[i]= arr2[i-arr1.length];
+					}
+			}
+		// logic 2
+			for(int j=0;j<arr2.length;j++)
+			{
+				arr3[arr1.length+j]= arr2[j];
+			}
+		for(char k: arr3)
+		{
+			System.out.print(k+" ");
+		}System.out.println("Using logic");
+	}
+
+	public static void main(String[] args) 
+	{
+		StringConcat obj= new StringConcat();
+		obj.concat();
+	}
+
+}

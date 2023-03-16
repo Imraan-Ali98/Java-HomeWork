@@ -1,0 +1,82 @@
+package fileIO;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class StringSearching 
+{   //Search a word in a file
+	void search()
+	{   String f="";
+		String s= "Good paragraphs begin with a topic sentence that"
+			    + "\nbriefly explains what the paragraph is about. "
+		 		+ "\nNext come a few sentences for development and support, "
+		 		+ "\nelaborating on the topic with more detail. "
+		 		+ "\nParagraphs end with a conclusion sentence that summarizes the topic or "
+		 		+ "\npresents one final piece of support to wrap up.";	
+	try {
+		FileWriter fw= new FileWriter("C:\\Z Imraan Files\\FileIO//StringSearching.txt");
+		fw.write(s);
+		fw.flush();
+		fw.close();
+		
+		FileReader fr= new FileReader("C:\\Z Imraan Files\\FileIO//StringSearching.txt");
+		int i=0;
+		while((i=fr.read())!=-1)
+			{
+			 f=f+((char)i);
+			}
+		fr.close();
+		}
+	catch(Exception e)
+	{
+	 System.out.println("Something wrong!");
+	}
+	
+	 String input= "development";
+	 char crr[]= f.toCharArray();
+	 int counter=0;
+	 for(int i=0;i<f.length();i++)
+	 {
+	  if(crr[i]==' ')
+	  {
+		counter++;  
+	  }
+	 }
+	 
+	 String ss[]= new String[counter+1];
+	 int num=0;
+	 for(int i=0;i<ss.length;i++)
+	 {	 String t="";
+		 for(int j=num;j<crr.length;j++) 
+		 {
+			 if(crr[j]==' ')
+			 {
+			  num=j+1;
+		      break;
+			 }
+			 else
+			 {
+		      t=t+crr[j];
+			 }
+		 }
+		 ss[i]=t;
+	 }
+	 int flag=0;
+	 for(int k=0;k<ss.length;k++)
+	 {
+	  if(ss[k].equalsIgnoreCase(input)) 
+		{
+	     flag= 1; 
+		}
+	 }
+	 if(flag==1)
+		 System.out.println("Given word '"+input+"' is there!");
+	 else
+		 System.out.println("Given word '"+input+"' is 'not' there!");
+	}
+	public static void main(String[] args) 
+	{
+		StringSearching obj= new StringSearching();
+		obj.search();
+	}
+}

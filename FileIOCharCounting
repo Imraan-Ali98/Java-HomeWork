@@ -1,0 +1,54 @@
+package fileIO;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class CharCounting 
+{   //No. of char in file excluding space
+	void count()
+	{	
+		String s= "Good paragraphs begin with a topic sentence that"
+			    + "\nbriefly explains what the paragraph is about. "
+		 		+ "\nNext come a few sentences for development and support, "
+		 		+ "\nelaborating on the topic with more detail. "
+		 		+ "\nParagraphs end with a conclusion sentence that summarizes the topic or "
+		 		+ "\npresents one final piece of support to wrap up.";
+		String f="";
+		int counter=0;
+		try {
+			FileWriter fw= new FileWriter("C:\\Z Imraan Files\\FileIO//CharCounting.txt");
+			fw.write(s);
+			fw.flush();
+			fw.close();
+			
+			FileReader fr= new FileReader("C:\\Z Imraan Files\\FileIO//CharCounting.txt");
+			int i=0;
+			int j=0;
+			while((i=fr.read())!=-1)
+				{
+				 f= f+((char)i);
+				}
+			fr.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Something wrong!!!");
+		}
+	char arr[]= new char[s.length()];
+	for(int i=0;i<s.length();i++)
+	{
+		if(s.charAt(i)!=' ')// excluding space
+		{
+		 arr[i]= s.charAt(i);
+		 counter++;
+		}
+	}
+	System.out.println("Total no. of characters in file is: "+counter);
+}
+	public static void main(String[] args) 
+	{
+		CharCounting obj= new CharCounting();
+		obj.count();
+	}
+
+}

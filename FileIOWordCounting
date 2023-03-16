@@ -1,0 +1,66 @@
+package fileIO;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class WordsCounting 
+{
+	void count()
+	{ //count the no. of words in the file
+		String f=""; int wordCount=0;
+		String s= "Good paragraphs begin with a topic sentence that"
+			    + "\nbriefly explains what the paragraph is about. ";
+		try {
+			FileWriter fw= new FileWriter("C:\\Z Imraan Files\\FileIO//WordsCounting.txt");
+			fw.write(s);
+			fw.flush();
+			fw.close();
+			
+			FileReader fr= new FileReader("C:\\Z Imraan Files\\FileIO//WordsCounting.txt");
+			int i=0;
+			while((i=fr.read())!=-1)
+			{
+			 f=f+((char)i);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Something Wrong!!!");
+		}
+		String ss=""; int counter=0;
+		
+		char arr[]= f.toCharArray();
+		
+		for(int i=0;i<arr.length;i++)
+		{
+		 if(arr[i]==' ')
+		 {
+		  counter++;
+		 }
+		}
+		String ars[]= new String[counter+1];
+		int num=0;
+		for(int i=0;i<ars.length;i++)
+		{
+		for(int j=num;j<arr.length;j++)
+		{	
+			if(arr[j]==' ')
+			{
+				num= j+1;
+			    break;	
+			}
+			else
+			{	
+			ss=ss+arr[i];
+			}
+		} ars[i]=ss; 	
+	 }
+		System.out.println("Total count of words in file is: "+ars.length);
+	}
+	public static void main(String[] args) 
+	{
+		WordsCounting obj= new WordsCounting();
+		obj.count();
+	}
+
+}

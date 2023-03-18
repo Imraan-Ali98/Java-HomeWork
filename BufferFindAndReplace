@@ -1,0 +1,80 @@
+package Buffer;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class findAndReplace 
+{
+	void replace()
+	{
+		String s="Good paragraphs begin with a topic sentence that\n"
+				+"briefly explains what the paragraph begin with is about.";
+		String r="";
+		try {
+			FileWriter fw= new FileWriter("C:\\Z Imraan Files\\FileIO//findAndReplace.txt");
+			fw.write(s);
+			fw.flush();
+			fw.close();
+			
+			FileReader fr= new FileReader("C:\\Z Imraan Files\\FileIO//findAndReplace.txt");
+			BufferedReader br= new BufferedReader(fr);
+			int i=0;
+			while((i=br.read())!=-1)
+					{
+				     r=r+((char)i);
+					}
+			//System.out.println(r);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Check your file!!!");
+		}
+		char x[]= r.toCharArray();
+		int counter=0;
+		for(int i=0;i<x.length;i++)
+		{
+			if(x[i]==' ')
+				counter++;
+		}
+		
+		String ss[]= new String[counter+1];
+		int num=0;
+		for(int j=0;j<ss.length;j++)
+		{ String t="";
+		for(int i=num;i<x.length;i++)
+		{
+			if(x[i]==' ')
+			{
+			 num=i+1;
+			 break;
+			}
+			else
+			{
+			 t=t+x[i];
+			}
+			ss[j]=t;	
+		}
+		}
+		
+		String find="begin",replace="loves";
+		int flag=0;
+		for(int i=0;i<ss.length;i++)
+		{	
+			if(ss[i].equals(find))
+			{
+			 ss[i]=replace;
+			 flag=1;
+			}
+		}
+		if(flag==0) System.out.println("Given word not found!!!");
+		else
+		{for(String k: ss)
+			System.out.print(k+" ");}
+	}		
+	public static void main(String[] args) 
+	{
+		findAndReplace obj= new findAndReplace();
+		obj.replace();
+	}
+}

@@ -1,0 +1,78 @@
+package Task.string;
+
+public class FindingCharPangram {
+	void find() { // Pangram
+		String string = "The quick brown fox jumps over lazy dog";
+		string = string.toLowerCase();
+		char arr[] = string.toCharArray();
+		int counter = 0;
+		for (int i = 0; i < string.length(); i++) {
+			if (arr[i] == ' ') {
+				counter++;
+			}
+		} // System.out.println(counter);
+
+		int num = 0;
+		String ss[] = new String[counter + 1];
+		for (int j = 0; j < ss.length; j++) {
+			char c = ' ';
+			String t = "";
+			for (int i = num; i < arr.length; i++) {
+				if (arr[i] == c) {
+					num = i + 1;
+					break;
+				} else {
+					t = t + arr[i];
+				}
+			}
+			ss[j] = t;
+		}
+		
+		String t="";
+		for(int i=0;i<ss.length;i++)
+		{
+			for(int j=0;j<ss[i].length();j++)
+			{
+				t=t+ss[i].charAt(j);
+			}
+		}
+		char arr2[]= t.toCharArray();
+		for(char k: arr2)
+			System.out.print(k);
+			System.out.println();
+			
+			
+			int flag=1, count=0; //local variable count is not intialized.
+		abc:for(char c='a';c<='z';c++)
+			{	count=0;
+				for(int i=0;i<arr2.length;i++)
+				{
+					if(c==arr2[i])
+					{
+						break;
+					}
+					else
+					{
+						count++;
+						if(count==arr2.length)
+						{
+						break abc;	
+						}
+					}
+				}
+			}
+		
+			if(count==arr2.length)
+			{
+				System.out.println("Sorry! Given statement is 'not' a Pangram!!!");
+			}
+			else
+			{
+				System.out.println("Hurray! Given statement is Pangram!!!");
+			}
+	}
+	public static void main(String[] args) {
+		FindingCharPangram obj = new FindingCharPangram();
+		obj.find();
+	}
+}

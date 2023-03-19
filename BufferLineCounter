@@ -1,0 +1,44 @@
+package Buffer;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class LineCounting 
+{
+	static void count()
+	{
+		String s="Good paragraphs loves with a topic sentence that\r\n"
+				+ "briefly explains what the paragraph loves with is about.\n"
+				+ "Good paragraphs loves with a topic sentence that\r\n"
+				+ "briefly explains what the paragraph loves with is about.";
+		try {
+			FileWriter fw= new FileWriter("C:\\Z Imraan Files\\Buffer//LineCounting.txt");
+			BufferedWriter bw= new BufferedWriter(fw);
+			bw.write(s);
+			bw.flush();
+			bw.close();
+			
+			FileReader fr= new FileReader("C:\\Z Imraan Files\\Buffer//LineCounting.txt");
+			BufferedReader br= new BufferedReader(fr);
+			int i=0;String r="";
+			
+			while(br.ready()) //ready() will give boolean value whether the stream is ready or not
+				{
+					r=br.readLine();
+					//System.out.println(r);
+					i++;
+				}
+			System.out.println("Total No. of lines is: "+i);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Check your file!!!");
+		}
+	}
+	public static void main(String[] args) 
+	{
+		count();
+	}
+}

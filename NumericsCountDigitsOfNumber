@@ -1,0 +1,20 @@
+package numerics;
+
+public class CountNoOfDigits 
+{
+	static void count()
+	{
+		long num= 8870920902l;
+		
+		long i=0, counter=0;
+		while(num!=0) {
+			i= num % 10;
+		//	System.out.print(i+" ");
+			num= num/10;
+			counter++;
+		} System.out.println("No. of digits are: "+counter);
+	}
+	public static void main(String[] args) {
+		count();
+	}
+}

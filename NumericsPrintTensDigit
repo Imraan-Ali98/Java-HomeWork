@@ -1,0 +1,23 @@
+package numerics;
+
+public class TensPlace {
+	static void find()
+	{
+	 int num= 12345670;
+	 int n=0;
+
+	 for(int i=1;i<=2;i++)
+	 {
+	  n= num %10;
+	  num= num/10;
+	  if(i==2)
+	  {
+		  System.out.print("Digit in tens place: "+n);
+	  }
+	 }
+	}
+	public static void main(String[] args) 
+	{
+		find();
+	}
+}

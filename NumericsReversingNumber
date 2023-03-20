@@ -11,6 +11,7 @@ public class ReversingNumber
 		while(num!=0)
 		{
 		n= num % 10;
+		System.out.print(n);
 		num= num/10;
 		counter++;	
 		}

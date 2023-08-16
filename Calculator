@@ -1,0 +1,249 @@
+package calculator;
+
+import java.util.Scanner;
+
+public class Calculator {
+
+	double total, number1, number2, retotal = 1, div = 1, result, i = 0;
+	boolean continueLoop = true;
+	char operator, symbol;
+
+	Scanner scanner = new Scanner(System.in);
+
+	void input() {
+
+		System.out.println("Java Calculator..!");
+
+		System.out.print("Enter a number: ");
+		number1 = scanner.nextDouble();
+
+		System.out.print("Enter an operator [+, -, *, /]");
+		operator = scanner.next().charAt(0);
+
+		operators(operator);
+
+//		System.out.println("Result: " + result);
+//
+//		scanner.close();
+	}
+
+	void operators(char operator) {
+		switch (operator) {
+		case '+':
+			addition();
+			break;
+		case '-':
+			subtraction();
+			break;
+		case '*':
+			multiplication();
+			break;
+		case '/':
+			division();
+			break;
+		default:
+			System.out.println("Invalid operator");
+		}
+	}
+
+	void operatorsPass(char operator) {
+		switch (operator) {
+		case '+':
+			addition();
+			break;
+		case '-':
+			subtraction();
+			break;
+		case '*':
+			multiplicationPass();
+			break;
+		case '/':
+			division();
+			break;
+		default:
+			System.out.println("Invalid operator");
+		}
+	}
+
+	void operator() {
+		System.out.print("Enter an operator [+, -, *, /] ");
+		operator = scanner.next().charAt(0);
+		operators(operator);
+	}
+
+	void addition() {
+		while (continueLoop) {
+
+			System.out.print("Enter another number: ");
+			number2 = scanner.nextDouble();
+
+			total = total + number1 + number2;
+			System.out.println("\tTotal: " + total);
+			number1 = 0;
+			number2 = 0;
+
+			System.out.print("To stop press : 'N' or 'n' \n or to continue press 'Y' or 'y' ");
+			symbol = scanner.next().charAt(0);
+			if (symbol == 'n' || symbol == 'N') {
+				System.out.println("Thanks for using me ):");
+				continueLoop = true;
+			} else {
+
+				System.out.println("Enter an operator [+, -, *, /]");
+				operator = scanner.next().charAt(0);
+				if (operator == '+') {
+					operators(operator);
+				} else if (operator == '-') {
+					
+				} else if (operator == '*') {
+					multiplicationPass();
+				} else if (operator == '/') {
+
+				}
+			}
+		}
+	}
+
+	void additionPass() {
+
+		 while (continueLoop) {
+
+			System.out.print("Enter another number: ");
+			number2 = scanner.nextDouble();
+
+			total = total + number2;
+			System.out.println("Total : " + total);
+
+			System.out.print("To stop press : 'N' or 'n' \n or to continue press 'Y' or 'y' ");
+			symbol = scanner.next().charAt(0);
+			if (symbol == 'n' || symbol == 'N') {
+				System.out.println("Thanks for using me ):");
+				continueLoop = false;
+			} else {
+
+				System.out.print("Enter an operator [+, -, *, /] ");
+				operator = scanner.next().charAt(0);
+				operatorsPass(operator);
+			}
+		}
+	}
+	void subtraction() {
+		while (continueLoop) {
+
+			System.out.print("Enter another number: ");
+			number2 = scanner.nextDouble();
+
+			total = total + number1 - number2;
+			System.out.println("\tTotal: " + total);
+			number1 = 0;
+			number2 = 0;
+
+			System.out.print("To stop press : 'N' or 'n' \n or to continue press 'Y' or 'y' ");
+			symbol = scanner.next().charAt(0);
+			if (symbol == 'n' || symbol == 'N') {
+				System.out.println("Thanks for using me ):");
+				continueLoop = false;
+			} else {
+				System.out.print("Enter an operator [+, -, *, /] ");
+				operator = scanner.next().charAt(0);
+				if (operator == '+') {
+
+				} else if (operator == '-') {
+					operators(operator);
+				} else if (operator == '*') {
+					multiplicationPass();
+				} else if (operator == '/') {
+
+				}
+
+			}
+
+		}
+	}
+
+	void multiplication() {
+		while (continueLoop) {
+
+			System.out.print("Enter another number: ");
+			number2 = scanner.nextDouble();
+
+			total = number1 * number2 * retotal;
+
+			retotal = total;
+			total = retotal;
+			System.out.println("\tTotal: " + total);
+			number1 = 1;
+			// number2 = 0;
+
+			System.out.print("To stop press : 'N' or 'n' \n or to continue press 'Y' or 'y' ");
+			symbol = scanner.next().charAt(0);
+			if (symbol == 'n' || symbol == 'N') {
+				System.out.println("Thanks for using me ):");
+				continueLoop = false;
+			} else {
+
+				System.out.print("Enter an operator [+, -, *, /] ");
+				operator = scanner.next().charAt(0);
+				operators(operator);
+			}
+		}
+	}
+
+	void multiplicationPass() {
+
+		m2: while (continueLoop) {
+
+			System.out.print("Enter another number: ");
+			number2 = scanner.nextDouble();
+
+			total = total * number2;
+			System.out.println("Total : " + total);
+
+			System.out.print("To stop press : 'N' or 'n' \n or to continue press 'Y' or 'y' ");
+			symbol = scanner.next().charAt(0);
+			if (symbol == 'n' || symbol == 'N') {
+				System.out.println("Thanks for using me ):");
+				continueLoop = false;
+			} else {
+
+				System.out.print("Enter an operator [+, -, *, /] ");
+				operator = scanner.next().charAt(0);
+				operatorsPass(operator);
+			}
+		}
+	}
+
+	void division() {
+		while (continueLoop) {
+
+			System.out.print("Enter another number: ");
+			number2 = scanner.nextDouble();
+
+			total = number1 / number2 / div;
+			retotal = total;
+			total = retotal;
+			System.out.println("\tTotal: " + total);
+			number1 = 0;
+			number2 = 0;
+
+			System.out.print("To stop press : 'N' or 'n' \n or to continue press 'Y' or 'y' ");
+			symbol = scanner.next().charAt(0);
+			if (symbol == 'n' || symbol == 'N') {
+				System.out.println("Thanks for using me ):");
+				continueLoop = false;
+			} else {
+
+				System.out.println("Enter an operator [+, -, *, /]");
+				operator = scanner.next().charAt(0);
+				operators(operator);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Calculator obj = new Calculator();
+		obj.input();
+
+	}
+}
